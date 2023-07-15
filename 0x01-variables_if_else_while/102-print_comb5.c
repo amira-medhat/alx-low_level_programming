@@ -40,6 +40,8 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
+				else
+					break;
 				if  (q == 9)
 				{
 					q = 0;
@@ -48,7 +50,11 @@ int main(void)
 				q++;
 				}
 				k++;
+				if (((i == 9 && j == 8) && (k == 9 && q == 9)))
+					break;
 			}
+			if (((i == 9 && j == 8) && (k == 9 && q == 9)))
+				break;
 		}
 		putchar(' ');
 	}
