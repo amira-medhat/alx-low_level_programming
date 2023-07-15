@@ -41,7 +41,7 @@ int main(void)
 					putchar(' ');
 				}
 				else
-					break;
+					return (0);
 				if  (q == 9)
 				{
 					q = 0;
@@ -51,11 +51,13 @@ int main(void)
 				}
 				k++;
 				if (((i == 9 && j == 8) && (k == 9 && q == 9)))
-					break;
+					return (0);
 			}
 			if (((i == 9 && j == 8) && (k == 9 && q == 9)))
-				break;
+				return (0);
 		}
+		if (((i == 9 && j == 8) && (k == 9 && q == 9)))
+				return (0);
 		putchar(' ');
 	}
 
