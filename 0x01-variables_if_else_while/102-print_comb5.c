@@ -16,9 +16,10 @@ int main(void)
 	{
 		for (j = 0; j <= 8; j++)
 		{
+			q = j + 1;
 			for (k = 0; k <= 9; k++)
 			{
-				for (q = 1; q <= 9; q++)
+				while (q <= 9)
 				{
 				putchar(i + '0');
 				putchar(j + '0');
@@ -30,6 +31,12 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
+				if  (q == 9)
+				{
+					q = 0;
+					break;
+				}
+				q++;
 				}
 			}
 		}
