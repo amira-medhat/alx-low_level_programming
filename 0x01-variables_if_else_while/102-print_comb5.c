@@ -17,7 +17,7 @@ int main(void)
 		for (j = 0; j <= 8; j++)
 		{
 			q = j + 1;
-			for (k = 0; k <= 9; k++)
+			for (k = i; k <= 9; k++)
 			{
 				while (q <= 9)
 				{
