@@ -14,10 +14,19 @@ int main(void)
 
 	for (i = 0; i <= 9; i++)
 	{
-		for (j = 0; j <= 8; j++)
+		for (j = 0; j <= 9; j++)
 		{
+			if (j == 9)
+			{
+				q = 0;
+				k = 1;
+			}
+			else
+			{
 			q = j + 1;
-			for (k = i; k <= 9; k++)
+			k = i;
+			}
+			while (k <= 9)
 			{
 				while (q <= 9)
 				{
@@ -38,6 +47,7 @@ int main(void)
 				}
 				q++;
 				}
+				k++;
 			}
 		}
 		putchar(' ');
