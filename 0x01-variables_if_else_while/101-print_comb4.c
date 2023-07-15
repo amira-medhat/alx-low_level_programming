@@ -11,12 +11,13 @@
 int main(void)
 {
 	int s = 0, e = 8;
+	int i, j;
 
 	while (s <= e)
 	{
-		for (int i = s + 1; i <= 9; i++)
+		for (i = s + 1; i <= 9; i++)
 		{
-			for (int j = i + 1; j <= 9; j++)
+			for (j = i + 1; j <= 9; j++)
 			{
 			putchar(s + '0');
 			putchar(i + '0');
