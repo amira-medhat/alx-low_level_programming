@@ -19,4 +19,6 @@ void more_numbers(void);
 
 int print_digit(int n);
 
+void print_line(int n);
+
 #endif /* MAIN_H */
