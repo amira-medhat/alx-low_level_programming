@@ -1,0 +1,19 @@
+#include "main.h"
+
+/**
+ * print_last_digit - prints the last digit
+ * @n: param represents the number.
+ * Return: the number.
+ */
+
+int print_last_digit(int n)
+{
+	if (n < 0)
+	{
+		n = (-1) * n;
+		n = n % 10;
+		return (n);
+	}
+	n = n % 10;
+	return (n);
+}
