@@ -25,4 +25,8 @@ void print_diagonal(int n);
 
 void print_square(int size);
 
+void printstr(char *str);
+
+void FizzBuzz(void);
+
 #endif /* MAIN_H */
