@@ -29,4 +29,6 @@ void printstr(char *str);
 
 void FizzBuzz(void);
 
+void print_triangle(int size);
+
 #endif /* MAIN_H */
