@@ -31,4 +31,6 @@ void FizzBuzz(void);
 
 void print_triangle(int size);
 
+int isprime(int n, int firsttime);
+
 #endif /* MAIN_H */
