@@ -7,7 +7,7 @@
  * @firsttime: refers to first call of the fun.
  */
 
-int isprime(int n, int firsttime)
+int isprime(long int n, int firsttime)
 {
 	int i = 2;
 	int result;
@@ -20,7 +20,7 @@ int isprime(int n, int firsttime)
 		if (n % i == 0)
 		{
 			if (firsttime == 0)
-				printf("The prime factors of %d are: ", n);
+				printf("The prime factors of %ld are: ", n);
 			printf("%d", i);
 			if (i != n)
 				printf(", ");
@@ -43,12 +43,12 @@ int isprime(int n, int firsttime)
 
 int main(void)
 {
-	int num = 1231952;
+	long int num = 612852475143;
 	int firsttime = 0;
 
 	int max = isprime(num, firsttime);
 
-	printf("The largest prime factor for %d is: ", num);
+	printf("The largest prime factor for %ld is: ", num);
 	printf("%d\n", max);
 
 return (0);
