@@ -31,8 +31,8 @@ void puts_half(char *str)
 
 	if (strlength % 2 == 0)
 	{
-		strlength = strlength / 2 + 1;
-	        i = strlength;
+		strlength = strlength / 2;
+		i = strlength;
 		while (str[i] != '\0')
 		{
 			_putchar(str[i]);
@@ -41,12 +41,13 @@ void puts_half(char *str)
 	}
 	else
 	{
-		strlength = (strlength - 1) / 2 + 1;
-	        i = strlength;
+		strlength = (strlength - 1) / 2;
+		i = strlength;
 		while (str[i] != '\0')
 		{
 			_putchar(str[i]);
 			i++;
 		}
 	}
+	_putchar('\n');
 }
