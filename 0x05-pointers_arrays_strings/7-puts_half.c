@@ -39,7 +39,7 @@ void puts_half(char *str)
 	}
 	else
 	{
-		strlength = (length_of_the_string - 1) / 2;
+		strlength = (strlength - 1) / 2;
 		for (i = strlength; i >= 0; i--)
 		{
 			_putchar(str[i]);
