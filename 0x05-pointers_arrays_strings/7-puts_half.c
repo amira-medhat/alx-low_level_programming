@@ -32,17 +32,21 @@ void puts_half(char *str)
 	if (strlength % 2 == 0)
 	{
 		strlength = strlength / 2;
-		for (i = strlength; i >= 0; i--)
+	        i = strlength;
+		while (str[i] != '\0')
 		{
 			_putchar(str[i]);
+			i++;
 		}
 	}
 	else
 	{
 		strlength = (strlength - 1) / 2;
-		for (i = strlength; i >= 0; i--)
+	        i = strlength;
+		while (str[i] != '\0')
 		{
 			_putchar(str[i]);
+			i++;
 		}
 	}
 }
