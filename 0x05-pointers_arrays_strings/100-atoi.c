@@ -8,10 +8,10 @@
 
 int _isdigit(char ch)
 {
-    if (ch >= '0' && ch <= '9')
-	    return (1);
-    else
-	    return (0);
+	if (ch >= '0' && ch <= '9')
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -30,7 +30,7 @@ int _atoi(char *s)
 	while (s[i] != '\0')
 	{
 		digit = _isdigit(s[i]);
-		if(digit)
+		if (digit)
 		{
 			num = num * (10) + (s[i] - '0');
 			if (s[i - 1] == '-')
