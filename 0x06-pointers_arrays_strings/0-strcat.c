@@ -1,26 +1,6 @@
 #include "main.h"
 
 /**
- * _strlen - to recognize the length of string
- * @s: the string.
- * Return: its length.
- */
-
-int _strlen(char *s)
-{
-	int i = 0;
-	int count = 0;
-
-	while (s[i] != '\0')
-	{
-		count++;
-		i++;
-	}
-	return (count);
-}
-
-
-/**
  * _strcat - function appends a string to another
  * @src: the first string.
  * @dest: the second one.
@@ -29,29 +9,22 @@ int _strlen(char *s)
 
 char *_strcat(char *dest, char *src)
 {
-	int src_len = _strlen(src);
-	int dest_len = _strlen(dest);
-	char *result = (char *)malloc(dest_len + src_len + 1);
-	int k = 0;
-	int j = 0;
+	int i;
+	int j;
 
-	if (result == NULL)
+	i = 0;
+	while (dest[i] != '\0')
 	{
-		return NULL;
+		i++;
 	}
-
-	while (src[k] != '\0')
+	j = 0;
+	while (src[j] != '\0')
 	{
-		result[k] = src[k];
-		k++;
-	}
-
-	while (dest[j] != '\0')
-	{
-		result[src_len] = dest[j];
-		src_len++;
+		dest[i] = src[j];
+		i++;
 		j++;
 	}
-	result[src_len] = '\0';
-	return result;
+
+	dest[i] = '\0';
+	return (dest);
 }
