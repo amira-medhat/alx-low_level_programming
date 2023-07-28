@@ -30,10 +30,15 @@ int _strlen(char *s)
 char *_strcat(char *dest, char *src)
 {
 	int src_len = _strlen(src);
+	int dest_len = _strlen(dest);
+	char *result = (char *)malloc(dest_len + src_len + 1);
 	int k = 0;
 	int j = 0;
-	char emptystring[] = "";
-	char *result = emptystring;
+
+	if (result == NULL)
+	{
+		return NULL;
+	}
 
 	while (src[k] != '\0')
 	{
@@ -48,5 +53,5 @@ char *_strcat(char *dest, char *src)
 		j++;
 	}
 	result[src_len] = '\0';
-	return (result);
+	return result;
 }
