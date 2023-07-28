@@ -30,10 +30,10 @@ int _strlen(char *s)
 char *_strcat(char *dest, char *src)
 {
 	int src_len = _strlen(src);
-	int i = src_len;
 	int k = 0;
 	int j = 0;
-	char *result[];
+	char emptystring[] = "";
+	char *result = emptystring;
 
 	while (src[k] != '\0')
 	{
