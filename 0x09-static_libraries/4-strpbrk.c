@@ -7,4 +7,6 @@
  * Return: string.
  */
 
-char *_strpbrk(char *s, char *accept);
+char *_strpbrk(char *s, char *accept)
+{
+}
