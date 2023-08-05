@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * main - main function
+ * @argc: arguments counter.
+ * @argv: array of strings.
+ * Return: 1 on Success.
+ */
+
+int main(int argc, char *argv[])
+{
+	int coins[] = {25, 10, 5, 2, 1};
+	int i;
+	int num;
+	int result = 0;
+
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	num = atoi(argv[1]);
+	if (num < 0)
+		printf("0\n");
+	else
+	{
+	for (i = 0; i < 5; i++)
+	{
+		while(num >= coins[i])
+		{
+			result++;
+			num = num - coins[i];
+		}
+	}
+	printf("%d\n", result);
+	}
+	return (EXIT_SUCCESS);
+}
