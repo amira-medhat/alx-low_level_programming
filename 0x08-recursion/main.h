@@ -20,4 +20,8 @@ int _sqrt_recursion(int n);
 
 int _sqrt_recursion_main(int num, int val);
 
+int is_prime_number(int n);
+
+int _is_prime_main(int num, int val);
+
 #endif /* MAIN_H */
