@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _puts_rev_recursion - prints each char of string recursively
+ * _print_rev_recursion - prints each char of string recursively
  * @s: the string.
  */
 
