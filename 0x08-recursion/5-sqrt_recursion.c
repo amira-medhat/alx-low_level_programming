@@ -13,8 +13,7 @@ int _sqrt_recursion_main(int num, int val)
 		return (-1);
 	if (val * val == num)
 		return (val);
-	_sqrt_recursion_main(num, val + 1);
-	return (val);
+	return (_sqrt_recursion_main(num, val + 1));
 }
 
 /**
