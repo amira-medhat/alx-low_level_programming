@@ -26,4 +26,6 @@ int _is_prime_main(int num, int val);
 
 int is_palindrome(char *s);
 
+int wildcmp(char *s1, char *s2);
+
 #endif /* MAIN_H */
