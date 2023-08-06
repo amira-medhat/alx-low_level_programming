@@ -14,6 +14,7 @@ int _sqrt_recursion_main(int num, int val)
 	if (val * val == num)
 		return (val);
 	_sqrt_recursion_main(num, val + 1);
+	return (val);
 }
 
 /**
@@ -24,5 +25,7 @@ int _sqrt_recursion_main(int num, int val)
 
 int _sqrt_recursion(int n)
 {
+	if (n < 0)
+		return (-1);
 	return (_sqrt_recursion_main(n, 1));
 }
