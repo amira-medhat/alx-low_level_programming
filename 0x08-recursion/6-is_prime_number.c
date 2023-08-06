@@ -9,8 +9,8 @@
 
 int _is_prime_main(int num, int val)
 {
-	if (val >= num/2)
-		return(1);
+	if (val >= num / 2)
+		return (1);
 	if (num % val == 0)
 		return (0);
 	return (_is_prime_main(num, val + 1));
@@ -24,5 +24,9 @@ int _is_prime_main(int num, int val)
 
 int is_prime_number(int n)
 {
+	if (n == 0 || n == 1)
+		return (0);
+	if (n < 0)
+		return (0);
 	return (_is_prime_main(n, 2));
 }
