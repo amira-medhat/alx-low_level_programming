@@ -24,4 +24,6 @@ int is_prime_number(int n);
 
 int _is_prime_main(int num, int val);
 
+int is_palindrome(char *s);
+
 #endif /* MAIN_H */
