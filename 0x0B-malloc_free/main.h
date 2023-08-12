@@ -1,6 +1,5 @@
 #ifndef MAIN_H
 #define MAIN_H
-#define NULL (void*)0
 
 #include <stdio.h>
 #include <stdlib.h>
