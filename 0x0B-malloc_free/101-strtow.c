@@ -15,7 +15,7 @@ int strings_num(char *str)
 	{
 		if (i != 0)
 		{
-		if ((str[i - 1] == ' ' && str[i] != ' ') && str[i] != '\0')
+		if (str[i - 1] == ' ' && str[i] != ' ')
 		{
 			strings++;
 		}
@@ -29,6 +29,7 @@ int strings_num(char *str)
  * sub_malloc - to allocate the sub arrays
  * @str: the given string
  * @ptr: the new string.
+ * Return: the new pointer.
  */
 
 char **sub_malloc(char *str, char **ptr)
@@ -39,10 +40,10 @@ char **sub_malloc(char *str, char **ptr)
 
 	while (str[i] != '\0')
 	{
-		size = 1;
+		size = 0;
 		if (i != 0)
 		{
-		if ((str[i - 1] == ' ' && str[i] != ' ') && str[i] != '\0')
+		if (str[i - 1] == ' ' && str[i] != ' ')
 		{
 			while (str[i] != ' ')
 			{
@@ -101,6 +102,7 @@ char **strtow(char *str)
 				index++;
 				i++;
 			}
+			ptr[j][index] = '\0';
 			j++;
 		}
 		}
