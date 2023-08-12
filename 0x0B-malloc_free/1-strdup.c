@@ -9,14 +9,14 @@
 
 char *_strdup(char *str)
 {
-	char *ptr = (char *)malloc((int)(sizeof(char) * strlen(str) + 1));
+	char *ptr;
 	int i;
 
 	if (str == NULL)
 	{
-		printf("failed to allocate memory\n");
 		return (NULL);
 	}
+	ptr = (char *)malloc((int)(sizeof(char) * strlen(str) + 1));
 	if (ptr == NULL)
 		return (NULL);
 	for (i = 0; i < (int)(sizeof(char) * strlen(str) + 1); i++)
