@@ -21,11 +21,12 @@ char *str_concat(char *s1, char *s2)
 		ptr[0] = '\0';
 		return (ptr);
 	}
-
-	if (s1 != NULL)
-		size = strlen(s1) + 1;
-	if (s2 != NULL)
+	if (s1 == NULL)
 		size = strlen(s2) + 1;
+	if (s2 == NULL)
+		size = strlen(s1) + 1;
+	if (s1 != NULL && s2 != NULL)
+		size = strlen(s1) + strlen(s2) + 1;
 
 	ptr = (char *)malloc(size);
 	if (ptr == NULL)
