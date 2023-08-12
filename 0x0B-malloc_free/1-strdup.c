@@ -9,14 +9,14 @@
 
 char *_strdup(char *str)
 {
-	char *ptr = (char *)malloc(sizeof(char) * strlen(str));
+	char *ptr = (char *)malloc(sizeof(char) * strlen(str) + 1);
 	long unsigned int i;
 
 	if (str == NULL)
 		return (NULL);
 	if (ptr == NULL)
 		return (NULL);
-	for (i = 0; i < sizeof(char) * strlen(str); i++)
+	for (i = 0; i < (sizeof(char) * strlen(str) + 1); i++)
 	{
 		ptr[i] = str[i];
 	}
