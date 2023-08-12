@@ -21,7 +21,7 @@ char *str_concat(char *s1, char *s2)
 		{
 			return (NULL);
 		}
-		ptr[0] = '\0';
+		strcpy(ptr, s2);
 		return (ptr);
 	}
 
