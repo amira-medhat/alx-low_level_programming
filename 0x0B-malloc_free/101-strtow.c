@@ -40,7 +40,7 @@ char **sub_malloc(char *str, char **ptr)
 
 	while (str[i] != '\0')
 	{
-		size = 0;
+		size = 1;
 		if (i != 0)
 		{
 		if (str[i - 1] == ' ' && str[i] != ' ')
