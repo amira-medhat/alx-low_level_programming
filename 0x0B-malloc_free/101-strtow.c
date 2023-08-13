@@ -9,20 +9,24 @@
 int strings_num(char *str)
 {
 	int i = 0;
-	int strings = 0;
+	int words = 0;
 
 	while (str[i] != '\0')
 	{
-		if (i != 0)
+		while (str[i] == ' ')
 		{
-		if (str[i - 1] == ' ' && str[i] != ' ')
+			i++;
+		}
+		if (str[i] != '\0')
 		{
-			strings++;
+			words++;
+			while (str[i] != ' ' && str[i] != '\0')
+			{
+				i++;
+			}
 		}
-		}
-		i++;
 	}
-	return (strings);
+	return (words);
 }
 
 /**
@@ -51,13 +55,6 @@ char **sub_malloc(char *str, char **ptr)
 				i++;
 			}
 		ptr[j] = (char *)malloc(sizeof(char) * size);
-		if (ptr[j] == NULL)
-		{
-			for (i = 0; i < j; i++)
-				free(ptr[i]);
-			free(ptr);
-			return (NULL);
-		}
 		j++;
 		}
 		}
