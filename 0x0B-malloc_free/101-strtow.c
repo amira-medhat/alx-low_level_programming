@@ -39,30 +39,43 @@ int strings_num(char *str)
 char **sub_malloc(char *str, char **ptr)
 {
 	int size;
+	int word_start = -1;
 	int j = 0;
 	int i = 0;
+	int index;
 
 	while (str[i] != '\0')
 	{
-		size = 1;
-		if (i != 0)
+		if (word_start == -1 && str[i] != ' ')
 		{
-		if (str[i - 1] == ' ' && str[i] != ' ')
-		{
-			while (str[i] != ' ')
-			{
-				size++;
-				i++;
-			}
-		ptr[j] = (char *)malloc(sizeof(char) * size);
-		j++;
+			word_start = i;
 		}
+		if (word_start != -1 && (str[i] == ' ' || str[i] == '\0'))
+		{
+			size = i - word_start;
+			ptr[j] = (char *)malloc(sizeof(char) * (size + 1));
+			if (ptr[j] == NULL)
+			{
+				int k;
+
+				for (k = 0; k < j; k++)
+					free(ptr[k]);
+				free(ptr);
+				return (NULL);
+			}
+
+			for (index = 0; index < size; index++)
+			{
+				ptr[j][index] = str[word_start + index];
+			}
+			ptr[j][size] = '\0';
+			j++;
+			word_start = -1;
 		}
 		i++;
 	}
 	return (ptr);
 }
-
 
 /**
  * strtow - function that splits a string into words
@@ -73,37 +86,14 @@ char **sub_malloc(char *str, char **ptr)
 char **strtow(char *str)
 {
 	char **ptr;
-	int i = 0;
-	int j = 0;
-	int index;
 
 	if (str == NULL)
 		return (NULL);
 
-	ptr = (char **)malloc(sizeof(char *) * strings_num(str));
+	ptr = (char **)malloc(sizeof(char *) * (strings_num(str) + 1));
 	if (ptr == NULL)
 		return (NULL);
 
 	ptr = sub_malloc(str, ptr);
-
-	while (str[i] != '\0')
-	{
-		index = 0;
-		if (i != 0)
-		{
-		if (str[i - 1] == ' ' && str[i] != ' ')
-		{
-			while (str[i] != ' ')
-			{
-				ptr[j][index] = str[i];
-				index++;
-				i++;
-			}
-			ptr[j][index] = '\0';
-			j++;
-		}
-		}
-		i++;
-	}
 	return (ptr);
 }
