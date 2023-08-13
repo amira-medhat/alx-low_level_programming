@@ -1,11 +1,11 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * strings_num - to find the number of strings in word
  * @str: the given string.
  * Return: number of single strings.
  */
-
 int strings_num(char *str)
 {
 	int i = 0;
@@ -88,6 +88,10 @@ char **strtow(char *str)
 	char **ptr;
 
 	if (str == NULL)
+		return (NULL);
+	if (strcmp(str, " ") == 0)
+		return (NULL);
+	if (strcmp(str, "") == 0)
 		return (NULL);
 
 	ptr = (char **)malloc(sizeof(char *) * (strings_num(str) + 1));
