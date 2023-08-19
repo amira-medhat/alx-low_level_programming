@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 
 	if (!b && (strcmp(argv[2], "/") || strcmp(argv[2], "%")))
 	{
-		printf("Error");
+		printf("Error\n");
 		exit(100);
 	}
 	printf("%d\n", op_function(a, b));

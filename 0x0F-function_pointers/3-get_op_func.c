@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*
+/**
  * get_op_func - function takes the parm which points to certain function
  * @s: string represents the parm.
  * Return: pointer to the certain function.
