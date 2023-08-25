@@ -1,0 +1,32 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "lists.h"
+
+/**
+* main - check the code
+*
+* Return: Always 0.
+*/
+int main(void)
+{
+	list_t *head;
+
+	head = NULL;
+	node(&head, "Daniel");
+	node(&head, "Kris");
+	add_node(&head, "Marine");
+	add_node(&head, "Mason");
+	add_node(&head, "Praylin");
+	add_node(&head, "Rick");
+	add_node(&head, "Rick");
+	add_node(&head, "Rona");
+	add_node(&head, "Siphan");
+	add_node(&head, "Sravanthi");
+	add_node(&head, "Steven");
+	add_node(&head, "Tasneem");
+	add_node(&head, "William");
+	add_node(&head, "Zee");
+	print_list(head);
+	return (0);
+}
