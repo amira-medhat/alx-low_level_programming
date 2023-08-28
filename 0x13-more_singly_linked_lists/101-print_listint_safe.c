@@ -3,58 +3,36 @@
 #include <stdlib.h>
 
 /**
- * _r - reallocates memory for an array of pointers
- * @list: the old list.
- * @size: size of new list.
- * @new: new node to add to the list.
- * Return: pointer to the new list.
- */
-
-const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
-{
-	const listint_t **newlist;
-	size_t i;
-
-	newlist = malloc(size * sizeof(listint_t *));
-	if (newlist == NULL)
-	{
-		free(list);
-		exit(98);
-	}
-	for (i = 0; i < size; i++)
-		newlist[i] = list[i];
-	newlist[i] = new;
-	free(list);
-	return (newlist);
-}
-
-/**
- * print_listint_safe - prints
- * @head: pointer to first node.
+ * print_listint_safe - prints a listint_t linked list
+ * @head: pointer to the first node.
  * Return: number of nodes in the list.
  */
-
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t i, num = 0;
-	const listint_t **list = NULL;
+    const listint_t *slow, *fast;
+    size_t count = 0;
 
-	while (head != NULL)
-	{
-		for (i = 0; i < num; i++)
-		{
-			if (head == list[i])
-			{
-				printf("-> [%p] %d\n", (void *)head, head->n);
-				free(list);
-				return (num);
-			}
-		}
-		num++;
-		list = _r(list, num, head);
-		printf("[%p] %d\n", (void *)head, head->n);
-		head = head->next;
-	}
-	free(list);
-	return (num);
+    slow = fast = head;
+
+    while (slow && fast && fast->next)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        /* If there's a loop, slow and fast will meet */
+        if (slow == fast)
+        {
+            printf("Loop detected\n");
+            exit(98);
+        }
+    }
+
+    while (head)
+    {
+        printf("[%p] %d\n", (void *)head, head->n);
+        count++;
+        head = head->next;
+    }
+
+    return count;
 }
