@@ -34,7 +34,12 @@ void print_all(const char * const format, ...)
 		break;
 	case 's':
 		str = va_arg(list, char *);
-		printf("%s", str ? str : empty);
+		if (str == NULL)
+		{
+			printf("%s", empty);
+			break;
+		}
+		printf("%s", str);
 		break;
 	default:
 		flag = 1;
