@@ -5,6 +5,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * struct dog - structure to diplay some data for a dog
+ * @name: its name.
+ * @age: its age.
+ * @owner: its human owner.
+ */
+
 struct dog
 {
 	char *name;
