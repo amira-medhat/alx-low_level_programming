@@ -13,4 +13,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n);
 
 char *_strncpy(char *dest, const char *src, unsigned int n);
 
+void *_calloc(unsigned int nmemb, unsigned int size);
+
 #endif /* MAIN_H */
