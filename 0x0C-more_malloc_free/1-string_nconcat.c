@@ -3,52 +3,60 @@
 #include <stdlib.h>
 
 /**
- * string_nconcat - function that concatenates two strings
- * @s1: the first string.
- * @s2: the second string.
- * @n: number of first characters of s2.
+ * _strncpy - Copies at most n characters from source to destination.
+ * @dest: Destination string.
+ * @src: Source string.
+ * @n: Maximum number of characters to copy.
  * Return: pointer to the new string.
+ */
+char *_strncpy(char *dest, const char *src, unsigned int n)
+{
+    unsigned int i;
+    for (i = 0; i < n && src[i] != '\0'; i++)
+    {
+        dest[i] = src[i];
+    }
+    for (; i < n; i++)
+    {
+        dest[i] = '\0';
+    }
+    return dest;
+}
+
+/**
+ * string_nconcat - Concatenates two strings, taking the first n characters of s2.
+ * @s1: The first string.
+ * @s2: The second string.
+ * @n: Number of first characters of s2 to concatenate.
+ * Return: Pointer to the new concatenated string, or NULL if it fails.
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *ptr;
-	int size, i = 0, j = 0;
-	unsigned int s1_len = strlen(s1);
-	unsigned int s2_len = strlen(s2);
+    char *result;
+    unsigned int s1_len = (s1 == NULL) ? 0 : strlen(s1);
+    unsigned int s2_len = (s2 == NULL) ? 0 : strlen(s2);
 
-	if (s1 == NULL && s2 == NULL)
-	{
-		ptr = (char *)malloc(sizeof(char));
-		if (ptr == NULL)
-			return (NULL);
-		ptr[0] = '\0';
-		return (ptr);
-	}
-	if (s1 == NULL)
-		size = (n >= s2_len) ? (s2_len + 1) : (n + 1);
-	if (s2 == NULL)
-		size = s1_len + 1;
-	if (s1 != NULL && s2 != NULL)
-		size = (n >= strlen(s2)) ? (s1_len + s2_len + 1) : (s1_len + n + 1);
-	ptr = (char *)malloc(size);
-	if (ptr == NULL)
-		return (NULL);
-	if (s1 != NULL)
-	{
-		while (s1[i] != '\0')
-		{
-			ptr[i] = s1[i];
-			i++;
-		}
-	}
-	if (s2 != NULL)
-	{
-		while ((n >= strlen(s2)) ? (s2[i] != '\0') : (n > 0))
-		{
-			ptr[i] = s2[j];
-			i++; j++; n--;
-		}
-	}
-	ptr[i] = '\0';
-	return (ptr);
+    if (n >= s2_len)
+    {
+        n = s2_len;
+    }
+
+    result = (char *)malloc(s1_len + n + 1);
+    if (result == NULL)
+    {
+        return (NULL);
+    }
+
+    if (s1 != NULL)
+    {
+        _strncpy(result, s1, s1_len);
+    }
+
+    if (s2 != NULL && n > 0)
+    {
+        _strncpy(result + s1_len, s2, n);
+    }
+
+    result[s1_len + n] = '\0';
+    return (result);
 }
