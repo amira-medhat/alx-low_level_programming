@@ -22,6 +22,8 @@ int is_valid_integer(const char *str)
 		return (0);
 		i++;
 	}
+	if (str[1] == '\0' && str[0] == '-')
+		return (0);
 	return (1);
 }
 
