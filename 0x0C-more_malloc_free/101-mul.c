@@ -3,19 +3,24 @@
 #include <ctype.h>
 
 /**
- * is_digit_string - Checks if a string consists of digits only.
+ * is_valid_integer - Checks if a string represents a valid integer.
  * @str: The string to be checked.
  *
- * Return: 1 if the string consists of digits only, 0 otherwise.
+ * Return: 1 if the string represents a valid integer, 0 otherwise.
  */
 
-int is_digit_string(const char *str)
+int is_valid_integer(const char *str)
 {
-	while (*str)
+	int i = 0;
+
+	if (str[i] == '-')
+		i++;
+
+	while (str[i] != '\0')
 	{
-		if (!isdigit(*str))
-			return (0);
-		str++;
+		if (!isdigit(str[i]))
+		return (0);
+		i++;
 	}
 	return (1);
 }
@@ -36,6 +41,7 @@ int main(int argc, char *argv[])
 	int int_num2;
 	long result;
 
+	(void)argc;
 	if (argc != 3)
 	{
 		printf("Error\n");
@@ -45,7 +51,7 @@ int main(int argc, char *argv[])
 	num1 = argv[1];
 	num2 = argv[2];
 
-	if (!is_digit_string(num1) || !is_digit_string(num2))
+	if (!is_valid_integer(num1) || !is_valid_integer(num2))
 	{
 		printf("Error\n");
 		exit(98);

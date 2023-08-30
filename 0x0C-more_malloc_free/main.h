@@ -21,4 +21,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 int is_digit_string(const char *str);
 
+int is_valid_integer(const char *str);
+
 #endif /* MAIN_H */
