@@ -14,7 +14,7 @@ int is_digit_string(const char *str)
 	while (*str)
 	{
 		if (!isdigit(*str))
-		return (0);
+			return (0);
 		str++;
 	}
 	return (1);
@@ -44,9 +44,6 @@ int main(int argc, char *argv[])
 
 	num1 = argv[1];
 	num2 = argv[2];
-	int_num1 = atoi(num1);
-	int_num2 = atoi(num2);
-	result = (long)int_num1 * int_num2;
 
 	if (!is_digit_string(num1) || !is_digit_string(num2))
 	{
@@ -54,7 +51,9 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-
+	int_num1 = atoi(num1);
+	int_num2 = atoi(num2);
+	result = (long)(int_num1 * int_num2);
 	printf("%ld\n", result);
 
 	return (0);
