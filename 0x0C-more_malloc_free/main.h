@@ -15,4 +15,6 @@ char *_strncpy(char *dest, const char *src, unsigned int n);
 
 void *_calloc(unsigned int nmemb, unsigned int size);
 
+int *array_range(int min, int max);
+
 #endif /* MAIN_H */
