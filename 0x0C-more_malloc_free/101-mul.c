@@ -49,12 +49,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-
-	if (!num1 || !num2)
-	{
-		printf("Error\n");
-		exit(98);
-	} 
+ 
 	num1 = argv[1];
 	num2 = argv[2];
 
