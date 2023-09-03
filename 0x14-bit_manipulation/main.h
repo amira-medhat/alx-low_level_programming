@@ -11,4 +11,6 @@ unsigned int custom_pow(unsigned int base, unsigned int exponent);
 
 int _putchar(char c);
 
+void print_binary(unsigned long int n);
+
 #endif /* MAIN_H */
