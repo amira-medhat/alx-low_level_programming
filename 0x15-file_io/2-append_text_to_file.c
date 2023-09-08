@@ -13,7 +13,7 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	ssize_t fd, _write;
+	ssize_t fd, _write = 0;
 
 	if (!filename)
 		return (-1);
@@ -25,12 +25,15 @@ int append_text_to_file(const char *filename, char *text_content)
 		close(fd);
 		return (-1);
 	}
-	_write = write(fd, text_content, strlen(text_content));
-	if (_write == -1 || _write != (ssize_t)strlen(text_content))
+	if (strlen(text_content))
 	{
-		close(fd);
-		return (-1);
+		_write = write(fd, text_content, strlen(text_content));
+		if (_write == -1 || _write != (ssize_t)strlen(text_content))
+		{
+			close(fd);
+			return (-1);
+		}
 	}
 	close(fd);
-	return (1);
+	return (_write == (ssize_t)strlen(text_content) ? 1 : -1);
 }
