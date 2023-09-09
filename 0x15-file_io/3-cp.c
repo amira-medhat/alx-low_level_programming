@@ -16,20 +16,20 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		exit(97);
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
 	}
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 	{
-		exit(98);
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
+		exit(98);
 	}
 	fd_to = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
 	if (fd_to == -1)
 	{
-		exit(99);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]);
+		exit(99);
 	}
 	coping(fd_from, fd_to, argv[1], argv[2]);
 	return (0);
@@ -57,21 +57,21 @@ void coping(int fd_from, int fd_to, char *from_name, char *to_name)
 		_write = write(fd_to, buffer, _read);
 		if (_write == -1)
 		{
-			exit(99);
 			dprintf(STDERR_FILENO, "Error: Can't write to %s", to_name);
+			exit(99);
 		}
 	}
 	if (_read == -1)
 		{
-			exit(98);
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s", from_name);
+			exit(98);
 		}
 	close(fd_from);
 	close(fd_to);
 	if (close(fd_from) == -1 || close(fd_to) == -1)
 	{
-		exit(100);
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", \
 				close(fd_from) == -1 ? fd_from : fd_to);
+		exit(100);
 	}
 }
