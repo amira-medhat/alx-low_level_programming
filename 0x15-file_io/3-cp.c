@@ -22,13 +22,13 @@ int main(int argc, char **argv)
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	fd_to = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	coping(fd_from, fd_to, argv[1], argv[2]);
@@ -57,20 +57,20 @@ void coping(int fd_from, int fd_to, char *from_name, char *to_name)
 		_write = write(fd_to, buffer, _read);
 		if (_write == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", to_name);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to_name);
 			exit(99);
 		}
 	}
 	if (_read == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s", from_name);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from_name);
 			exit(98);
 		}
 	close(fd_from);
 	close(fd_to);
 	if (close(fd_from) == -1 || close(fd_to) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", \
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", \
 				close(fd_from) == -1 ? fd_from : fd_to);
 		exit(100);
 	}
