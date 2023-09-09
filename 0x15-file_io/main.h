@@ -14,4 +14,6 @@ int create_file(const char *filename, char *text_content);
 
 int append_text_to_file(const char *filename, char *text_content);
 
+void coping(int fd_from, int fd_to, char *from_name, char *to_name);
+
 #endif /* MAIN_H */
