@@ -62,21 +62,21 @@ void coping(int fd_from, int fd_to, char *from_name, char *to_name)
 		}
 	}
 	if (_read == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from_name);
-			exit(98);
-		}
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from_name);
+		exit(98);
+	}
 
 	close(fd_from);
 	close(fd_to);
 
-	if (close(fd_from) == -1))
+	if (close(fd_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 
 	}
-	if (close(fd_to) == -1))
+	if (close(fd_to) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
