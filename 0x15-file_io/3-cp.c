@@ -67,9 +67,6 @@ void coping(int fd_from, int fd_to, char *from_name, char *to_name)
 		exit(98);
 	}
 
-	close(fd_from);
-	close(fd_to);
-
 	if (close(fd_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
