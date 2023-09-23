@@ -89,13 +89,13 @@ void print_elf_header_info(const Elf64_Ehdr *header)
             printf("HP-UX\n");
             break;
         case ELFOSABI_NETBSD:
-            printf("NetBSD\n");
+            printf("UNIX - NetBSD\n");
             break;
         case ELFOSABI_LINUX:
             printf("Linux\n");
             break;
         case ELFOSABI_SOLARIS:
-            printf("Sun Solaris\n");
+            printf("UNIX - Solaris\n");
             break;
         case ELFOSABI_AIX:
             printf("IBM AIX\n");
@@ -116,7 +116,7 @@ void print_elf_header_info(const Elf64_Ehdr *header)
             printf("OpenBSD\n");
             break;
         default:
-            printf("Unknown\n");
+            printf("\n");
             break;
     }
 
@@ -144,7 +144,7 @@ void print_elf_header_info(const Elf64_Ehdr *header)
             break;
     }
 
-    printf("  Entry point address:               0x%ldx\n", (long)header->e_entry);
+    printf("  Entry point address:               0x%lx\n", (unsigned long)header->e_entry);
 }
 /**
   * main - program to copy text from file ti another file
